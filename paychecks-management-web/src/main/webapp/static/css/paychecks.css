@@ -1,0 +1,24 @@
+.page-content {
+	padding-bottom: 150px;
+}
+
+.paychecks-table {
+	padding-bottom: 80px;
+}
+
+td.pay-state-double {
+	background-color: #4499C1;
+}
+
+td.pay-state-same {
+	background-color: #B247B1;
+}
+
+td.pay-state-less {
+	background-color: rgba(255, 0, 0, 0.7);
+}
+
+.div-center {
+	padding-top: 100px;
+	font-size: 20px;
+}

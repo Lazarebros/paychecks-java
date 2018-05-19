@@ -1,0 +1,227 @@
+@IMPORT url("../bootstrap-3.3.7/css/bootstrap.css");
+
+@IMPORT url("../font-awesome-4.7.0/css/font-awesome.css");
+
+:root {
+	--header-height: 70px;
+	--main-link-color: rgba(222,82,75, 0.8);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	height: 100%;
+	background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+	background: linear-gradient(to right, #25c481, #25b7c4);
+}
+
+.page-wrap {
+	min-height: 100%;
+	position: relative;
+}
+
+.white-text {
+	color: #fff;
+}
+
+/** ###################################### COMMON HEADER ######################################  */
+
+.header-navbar {
+	float: right;
+	padding-right: 40px;
+	padding-top: 8px;
+}
+
+ul.navbar-nav a {
+	color: #fff;
+	border-style: solid;
+	border-width: 0 0 2px 0;
+	border: none;
+	background: transparent;
+}
+
+ul.navbar-nav a:hover {
+	background: transparent;
+	border-bottom: 4px solid var(--main-link-color);
+}
+
+ul.dropdown-menu {
+	border: 0;
+	min-width: 130px;
+	background: #323d4b;
+	border-radius: 4px;
+	margin: 4px 0;
+	box-shadow: 0 0 4px 0 #ccc;
+}
+
+ul.dropdown-menu > li > a:hover {
+	background: var(--main-link-color);
+	border: none;
+	color: #fff;
+}
+
+.dropdown-toggle:active, .open .dropdown-toggle {
+	background: var(--main-link-color);
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background: transparent;
+    border-color: var(--main-link-color);
+}
+
+.page-common-header {
+	height: var(--header-height);
+	background-color: #323d4b;
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+}
+
+.project-name {
+	margin-left: 30px;
+	width: 200px;
+	height: var(--header-height);
+	color: #fff;
+	font-size: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	float: left;
+}
+
+/** ###################################### COMMON PAGE CONTENT ######################################  */
+
+.page-content {
+	padding-top: 100px;
+	padding-bottom: 400px;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+.page-common-footer {
+	height: var(--header-height);
+	width: 100%;
+	position: absolute;
+	left: 0;
+    bottom: 0;
+	background-color: #323d4b;
+	z-index: 1;
+}
+
+.page-common-footer-text {
+	padding-top: 8px;
+}
+
+h1 {
+	font-size: 30px;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: 300;
+	text-align: center;
+	margin-bottom: 15px;
+}
+
+.btn-custom {
+	margin-top: 10px;
+	width: 160px;
+	height: 35px;
+	background-color: rgba(0,0,0, 0.5);
+	border-color: rgba(0,0,0, 0.5);
+}
+
+a.btn-custom:hover {
+	background-color: rgba(222,82,75, 0.8);
+	border-color: rgba(0,0,0, 0.5);
+}
+
+/* .btn-blue { */
+/*     color: #fff; */
+/*     background-color: #3C82E2; */
+/*     border-color: #3C82E2; */
+/* } */
+
+/* .btn-blue:hover { */
+/*     color: #fff; */
+/*     background-color: #265B92; */
+/*     border-color: #265B92; */
+/* } */
+
+/** ###################################### TABLE STYLE ######################################  */
+
+tbl-body {
+	background-color: rgba(52, 60, 74, 0.3);
+}
+
+table {
+	width: 100%;
+	table-layout: fixed;
+	background-color: rgba(52, 60, 74, 0.5);
+}
+
+.tbl-header {
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+.tbl-content {
+	max-height: 300px;
+	overflow-x: auto;
+	margin-top: 0px;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+th {
+	padding: 20px 15px;
+	text-align: left;
+	font-weight: 500;
+	font-size: 12px;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+td {
+	padding: 15px;
+	text-align: left;
+	vertical-align: middle;
+	font-size: 12px;
+	color: #fff;
+	border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+}
+
+/* for custom scrollbar for webkit browser*/
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+/** ###################################### CHARTS STYLE ######################################  */
+
+.charts {
+	padding-top: 20px;
+	padding-bottom: 280px;
+}
+
+.grossAmountChart .realNetPayChart {
+	padding-bottom: 20px;
+}
+
+.grossAmountChart {
+	width: 500px;
+	height: 300px;
+	float: left;
+}
+
+.realNetPayChart {
+	width: 500px;
+	height: 300px;
+	float: right;
+}

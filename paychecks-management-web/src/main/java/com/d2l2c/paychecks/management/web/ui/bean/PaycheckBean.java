@@ -12,7 +12,7 @@ import java.util.List;
 import org.joda.time.DateTime;
 
 import com.d2l2c.common.util.date.DateUtil;
-import com.d2l2c.salary.management.service.bean.PaycheckSummary;
+import com.d2l2c.paychecks.management.service.bean.PaycheckSummary;
 
 /**
  * @author dayanlazare

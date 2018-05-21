@@ -11,6 +11,7 @@
 	<properties>
 		<paychecks.management.version>1.0.0-SNAPSHOT</paychecks.management.version>
 		<user.management.version>1.0.0-SNAPSHOT</user.management.version>
+		<d2l2c.common.version>1.0.0-SNAPSHOT</d2l2c.common.version>
 		<org.springframework-version>4.3.11.RELEASE</org.springframework-version>
 		<apache.tiles.version>3.0.7</apache.tiles.version>
 		<javax.servlet.api>3.1.0</javax.servlet.api>
@@ -37,7 +38,7 @@
 		<dependency>
 			<groupId>com.d2l2c</groupId>
 			<artifactId>common-util</artifactId>
-			<version>${user.management.version}</version>
+			<version>${d2l2c.common.version}</version>
 		</dependency>
 		
 		<!-- Spring -->

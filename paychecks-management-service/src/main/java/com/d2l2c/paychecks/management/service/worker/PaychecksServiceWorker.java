@@ -1,17 +1,17 @@
 /**
  * 
  */
-package com.d2l2c.salary.management.service.worker;
+package com.d2l2c.paychecks.management.service.worker;
 
 import java.util.List;
 
-import com.d2l2c.salary.management.service.bean.PaycheckSummary;
+import com.d2l2c.paychecks.management.service.bean.PaycheckSummary;
 
 /**
  * @author dayanlazare
  *
  */
-public interface SalaryWorker {
+public interface PaychecksServiceWorker {
 
 	public List<PaycheckSummary> getPaycheckSummary();
 	

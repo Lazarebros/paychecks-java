@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.d2l2c.paychecks.management.service.bean;
 
 import java.math.BigDecimal;
@@ -16,6 +13,7 @@ public class PaycheckDetails {
 	private String companyCode;
 	private Date startDate;
 	private Date endDate;
+	private int month;
 	private Long numberOfHours;
 	private BigDecimal hourlyRate;
 	private BigDecimal expectedGrossAmount;
@@ -54,6 +52,14 @@ public class PaycheckDetails {
 
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
+	}
+
+	public int getMonth() {
+		return month;
+	}
+
+	public void setMonth(int month) {
+		this.month = month;
 	}
 
 	public Long getNumberOfHours() {
@@ -115,9 +121,9 @@ public class PaycheckDetails {
 	@Override
 	public String toString() {
 		return "PaycheckDetails [id=" + id + ", companyCode=" + companyCode + ", startDate=" + startDate + ", endDate="
-				+ endDate + ", numberOfHours=" + numberOfHours + ", hourlyRate=" + hourlyRate + ", expectedGrossAmount="
-				+ expectedGrossAmount + ", grossAmount=" + grossAmount + ", expectedNetPay=" + expectedNetPay
-				+ ", netPay=" + netPay + ", reimbursement=" + reimbursement + "]";
+				+ endDate + ", month=" + month + ", numberOfHours=" + numberOfHours + ", hourlyRate=" + hourlyRate
+				+ ", expectedGrossAmount=" + expectedGrossAmount + ", grossAmount=" + grossAmount + ", expectedNetPay="
+				+ expectedNetPay + ", netPay=" + netPay + ", reimbursement=" + reimbursement + "]";
 	}
 
 }

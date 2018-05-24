@@ -19,6 +19,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
+import com.d2l2c.paychecks.management.service.spring.config.PaychecksServiceConfig;
 import com.d2l2c.paychecks.management.web.converter.RoleToUserProfileConverter;
 import com.d2l2c.user.management.sping.config.UserJPAConfig;
 
@@ -27,7 +28,7 @@ import com.d2l2c.user.management.sping.config.UserJPAConfig;
  *
  */
 @Configuration
-@Import(value={UserJPAConfig.class})
+@Import(value={UserJPAConfig.class, PaychecksServiceConfig.class})
 @EnableWebMvc
 @ComponentScan(basePackages = "com.d2l2c.paychecks.management.web")
 public class AppConfig extends WebMvcConfigurerAdapter {

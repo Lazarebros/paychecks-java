@@ -13,10 +13,10 @@ import com.d2l2c.paychecks.management.service.bean.PaycheckSummary;
  */
 public interface PaychecksServiceWorker {
 
-	public List<PaycheckSummary> getPaycheckSummary();
+	public List<PaycheckSummary> getPaychecks(String username, String password) throws Exception;
 	
-	public List<PaycheckSummary> getPaycheckSummary(int year);
+	public List<PaycheckSummary> getPaychecks(String username, String password, int year) throws Exception;
 	
-	public List<PaycheckSummary> getPaycheckSummary(int year, int month);
+	public List<PaycheckSummary> getPaychecks(String username, String password, int year, int month) throws Exception;
 
 }

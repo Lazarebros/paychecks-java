@@ -25,6 +25,13 @@ public class SessionUtils {
         return attributes.getRequest();
 	}
 
+	public static void setUserName(String username) {
+		HttpSession session = getSession();
+		if (session != null) {
+			session.setAttribute("username", username);
+		}
+	}
+
 	public static String getUserName() {
 		HttpSession session = getSession();
 		if (session != null) {

@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.d2l2c.paychecks.management.web.ui.bean.EChartBean;
 import com.d2l2c.paychecks.management.web.ui.bean.YearSummary;
 
 /**
@@ -23,6 +24,8 @@ public class HomeView implements Serializable {
 	private List<String> companies = new ArrayList<String>();
 	private Set<Integer> years = new HashSet<Integer>();
 	private Collection<YearSummary> yearSummaryList = new ArrayList<YearSummary>();
+	
+	private EChartBean chartBean = new EChartBean();
 
 	public List<String> getCompanies() {
 		return companies;
@@ -47,5 +50,15 @@ public class HomeView implements Serializable {
 	public void setYearSummaryList(Collection<YearSummary> yearSummaryList) {
 		this.yearSummaryList = yearSummaryList;
 	}
+
+	public EChartBean getChartBean() {
+		return chartBean;
+	}
+
+	public void setChartBean(EChartBean chartBean) {
+		this.chartBean = chartBean;
+	}
+	
+	
 
 }

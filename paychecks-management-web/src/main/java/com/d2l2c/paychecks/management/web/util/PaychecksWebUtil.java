@@ -10,7 +10,9 @@ import java.util.TreeMap;
 
 import org.dozer.DozerBeanMapper;
 
+import com.d2l2c.paycheck.util.bean.PaycheckDetail;
 import com.d2l2c.paycheck.util.bean.PaycheckSummary;
+import com.d2l2c.paychecks.management.web.ui.bean.EChartBean;
 import com.d2l2c.paychecks.management.web.ui.bean.PaycheckBean;
 import com.d2l2c.paychecks.management.web.ui.bean.YearSummary;
 import com.d2l2c.paychecks.management.web.ui.view.HomeView;
@@ -87,13 +89,28 @@ public class PaychecksWebUtil {
 	public static HomeView getHomeView(List<PaycheckSummary> PaycheckSummaryList) {
 		HomeView homeView = new HomeView();
 		TreeMap<Integer, YearSummary> yearSummaryMap = new TreeMap<Integer, YearSummary>(Collections.reverseOrder());
-		PaycheckSummaryList.forEach(PaycheckSummary -> {
-			YearSummary yearSummary = mapper.map(PaycheckSummary, YearSummary.class);
-			yearSummaryMap.put(PaycheckSummary.getYear(), yearSummary);
+		PaycheckSummaryList.forEach(paycheckSummary -> {
+			YearSummary yearSummary = mapper.map(paycheckSummary, YearSummary.class);
+			yearSummaryMap.put(paycheckSummary.getYear(), yearSummary);
 		});
 		homeView.setYearSummaryList(yearSummaryMap.values());
 		homeView.setYears(yearSummaryMap.keySet());
+		
+		EChartBean eChartBean = new EChartBean();
+		eChartBean.setYearSummaryMap(yearSummaryMap);
+		
+		homeView.setChartBean(eChartBean);
+		
 		return homeView;
+	}
+
+	public static TreeMap<Integer, PaycheckDetail> groupPaycheckDetailsByMonth(List<PaycheckDetail> paycheckDetails) {
+		TreeMap<Integer, PaycheckDetail> paycheckDetailMap = new TreeMap<Integer, PaycheckDetail>();
+		paycheckDetails.forEach(paycheckDetail -> {
+			PaycheckDetail paycheckDetailCopy = mapper.map(paycheckDetail, PaycheckDetail.class);
+			paycheckDetailMap.put(paycheckDetailCopy.getMonth(), paycheckDetailCopy);
+		});
+		return paycheckDetailMap;
 	}
 
 }

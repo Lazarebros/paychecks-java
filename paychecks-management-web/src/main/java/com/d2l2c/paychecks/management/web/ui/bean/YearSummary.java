@@ -4,6 +4,9 @@
 package com.d2l2c.paychecks.management.web.ui.bean;
 
 import java.math.BigDecimal;
+import java.util.List;
+
+import com.d2l2c.paycheck.util.bean.PaycheckDetail;
 
 /**
  * @author dlazare
@@ -23,6 +26,8 @@ public class YearSummary {
 	private BigDecimal netPayReal;
 	private BigDecimal netPayRemain;
 	private BigDecimal netPayRealMean;
+
+	private List<PaycheckDetail> paycheckDetails = null;
 
 	public int getYear() {
 		return year;
@@ -118,6 +123,14 @@ public class YearSummary {
 
 	public void setNetPayRealMean(BigDecimal netPayRealMean) {
 		this.netPayRealMean = netPayRealMean;
+	}
+
+	public List<PaycheckDetail> getPaycheckDetails() {
+		return paycheckDetails;
+	}
+
+	public void setPaycheckDetails(List<PaycheckDetail> paycheckDetail) {
+		this.paycheckDetails = paycheckDetail;
 	}
 
 }

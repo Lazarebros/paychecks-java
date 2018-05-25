@@ -3,36 +3,36 @@
 <div class="col-sm-9">
 	<div class="well">
 		<div class="row">
-			<c:forEach var="paycheck" items="${homeView.yearSummaryList}">
+			<c:forEach var="yearSummary" items="${homeView.yearSummaryList}">
 				<div class="col-sm-3 col-md-3">
 					<div class="thumbnail">
 						<div class="caption">
-							<h2 style="text-align: center">${paycheck.year}</h2>
+							<h2 style="text-align: center">${yearSummary.year}</h2>
 						</div>
 						<div class="modal-footer" style="text-align: left">
 							<div class="progress">
-							    <div class="progress-bar progress-bar-info" style="width:${paycheck.yearProgress}%">
-							    	<span class="white-text">${paycheck.yearProgress}% Complete</span>
+							    <div class="progress-bar progress-bar-info" style="width:${yearSummary.yearProgress}%">
+							    	<span class="white-text">${yearSummary.yearProgress}% Complete</span>
 							    </div>
   							</div>
 							<div class="row-fluid">
 								<div class="span4">
-									<b>Gross: </b><small>${paycheck.grossAmount}</small>
+									<b>Gross: </b><small>${yearSummary.grossAmount}</small>
 								</div>
 								<div class="span4">
-									<b>Net: </b><small>${paycheck.netPay}</small>
+									<b>Net: </b><small>${yearSummary.netPay}</small>
 								</div>
 								<div class="span4">
-									<b>Reimb.: </b><small>${paycheck.reimbursement}</small>
+									<b>Reimb.: </b><small>${yearSummary.reimbursement}</small>
 								</div>
 								<div class="span4">
-									<b>Real Net: </b><small>${paycheck.netPayReal}</small>
+									<b>Real Net: </b><small>${yearSummary.netPayReal}</small>
 								</div>
 								<div class="span4">
-									<b>Real Net Mean: </b><small>${paycheck.netPayRealMean}</small>
+									<b>Real Net Mean: </b><small>${yearSummary.netPayRealMean}</small>
 								</div>
 								<div>
-									<a href="<c:url value='/paychecks-${paycheck.year}' />" class="btn btn-danger btn-custom">Details</a>
+									<a href="<c:url value='/paychecks-${yearSummary.year}' />" class="btn btn-danger btn-custom">Details</a>
 								</div>
 							</div>
 						</div>
@@ -42,3 +42,29 @@
 		</div>
 	</div>
 </div>
+<div class="charts">
+	<div id="grossAmountChartDiv" class="grossAmountChart" ></div>
+	<div id="realNetPayChartDiv" class="realNetPayChart" ></div>
+</div>
+<br/>
+<div class="charts">
+	<div id="grossAmountCumulativeChartDiv" class="grossAmountChart" ></div>
+	<div id="realNetPayCumulativeChartDiv" class="realNetPayChart" ></div>
+</div>
+<script type="text/javascript">
+    var grossAmountChartDiv = echarts.init(document.getElementById('grossAmountChartDiv'));
+    var grossAmountChart = ${homeView.chartBean.grossAmountChart};
+    grossAmountChartDiv.setOption(grossAmountChart);
+
+    var realNetPayChartDiv = echarts.init(document.getElementById('realNetPayChartDiv'));
+    var realNetPayChart = ${homeView.chartBean.realNetPayChart};
+    realNetPayChartDiv.setOption(realNetPayChart);
+
+    var grossAmountCumulativeChartDiv = echarts.init(document.getElementById('grossAmountCumulativeChartDiv'));
+    var grossAmountCumulativeChart = ${homeView.chartBean.grossAmountCumulativeChart};
+    grossAmountCumulativeChartDiv.setOption(grossAmountCumulativeChart);
+    
+    var realNetPayCumulativeChartDiv = echarts.init(document.getElementById('realNetPayCumulativeChartDiv'));
+    var realNetPayCumulativeChart = ${homeView.chartBean.realNetPayCumulativeChart};
+    realNetPayCumulativeChartDiv.setOption(realNetPayCumulativeChart);
+</script>

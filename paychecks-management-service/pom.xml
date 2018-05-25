@@ -25,12 +25,11 @@
 			<artifactId>common-util</artifactId>
 			<version>${d2l2c.common.version}</version>
 		</dependency>
-
-		<!-- APACHE -->
+	
 		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-			<version>4.5.5</version>
+			<groupId>com.d2l2c</groupId>
+			<artifactId>paycheck-util</artifactId>
+			<version>${d2l2c.common.version}</version>
 		</dependency>
 
 		<!-- GSON -->

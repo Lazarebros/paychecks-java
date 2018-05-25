@@ -8,8 +8,12 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.TreeMap;
 
-import com.d2l2c.paychecks.management.service.bean.PaycheckSummary;
+import org.dozer.DozerBeanMapper;
+
+import com.d2l2c.paycheck.util.bean.PaycheckSummary;
 import com.d2l2c.paychecks.management.web.ui.bean.PaycheckBean;
+import com.d2l2c.paychecks.management.web.ui.bean.YearSummary;
+import com.d2l2c.paychecks.management.web.ui.view.HomeView;
 import com.d2l2c.user.management.bean.User;
 
 /**
@@ -18,12 +22,18 @@ import com.d2l2c.user.management.bean.User;
  */
 public class PaychecksWebUtil {
 
+	private static DozerBeanMapper mapper;
+
+	static {
+		mapper = new DozerBeanMapper();
+	}
+
 	public static void sortPaycheckViews(List<PaycheckBean> paycheckViews, boolean reverse) {
 		Comparator<PaycheckBean> comparator = new Comparator<PaycheckBean>() {
 			@Override
 			public int compare(PaycheckBean p1, PaycheckBean p2) {
 				int result = compareInt(p1.getYear(), p2.getYear());
-				if(result == 0) {
+				if (result == 0) {
 					result = compareInt(p1.getMonthOfPay(), p2.getMonthOfPay());
 				}
 				return result;
@@ -52,9 +62,9 @@ public class PaychecksWebUtil {
 
 	public static int compareInt(int value1, int value2) {
 		int result = 0;
-		if(value1 > value2) {
+		if (value1 > value2) {
 			result = 1;
-		} else if(value1 < value2) {
+		} else if (value1 < value2) {
 			result = -1;
 		} else {
 			result = 0;
@@ -64,9 +74,9 @@ public class PaychecksWebUtil {
 
 	public static int compareLong(Long value1, Long value2) {
 		int result = 0;
-		if(value1 > value2) {
+		if (value1 > value2) {
 			result = 1;
-		} else if(value1 < value2) {
+		} else if (value1 < value2) {
 			result = -1;
 		} else {
 			result = 0;
@@ -74,34 +84,16 @@ public class PaychecksWebUtil {
 		return result;
 	}
 
-	public static TreeMap<Integer, PaycheckBean> groupPaychecksByYear(List<PaycheckSummary> paychecks) {
-		TreeMap<Integer, PaycheckBean> paycheckMap = new TreeMap<Integer, PaycheckBean>(Collections.reverseOrder());
-		paychecks.forEach(paycheck -> {
-	        if (paycheckMap.containsKey(paycheck.getYear())) {
-	        	PaycheckBean matchedPaycheckBean = paycheckMap.get(paycheck.getYear());
-	        	matchedPaycheckBean.addPaycheck(paycheck);
-	        } else {
-	        	PaycheckBean paycheckBean = new PaycheckBean();
-	        	paycheckBean.addPaycheck(paycheck);
-	            paycheckMap.put(paycheck.getYear(), paycheckBean);
-	        }
-	    });
-		return paycheckMap;
+	public static HomeView getHomeView(List<PaycheckSummary> PaycheckSummaryList) {
+		HomeView homeView = new HomeView();
+		TreeMap<Integer, YearSummary> yearSummaryMap = new TreeMap<Integer, YearSummary>(Collections.reverseOrder());
+		PaycheckSummaryList.forEach(PaycheckSummary -> {
+			YearSummary yearSummary = mapper.map(PaycheckSummary, YearSummary.class);
+			yearSummaryMap.put(PaycheckSummary.getYear(), yearSummary);
+		});
+		homeView.setYearSummaryList(yearSummaryMap.values());
+		homeView.setYears(yearSummaryMap.keySet());
+		return homeView;
 	}
-
-//	public static TreeMap<Integer, PaycheckBean> groupPaychecksByMonth(List<PaycheckSummary> paychecks) {
-//		TreeMap<Integer, PaycheckBean> paycheckMap = new TreeMap<Integer, PaycheckBean>();
-//		paychecks.forEach(paycheck -> {
-//	        if (paycheckMap.containsKey(paycheck.getMonth())) {
-//	        	PaycheckBean matchedPaycheckBean = paycheckMap.get(paycheck.getMonth());
-//	        	matchedPaycheckBean.addPaycheck(paycheck);
-//	        } else {
-//	        	PaycheckBean paycheckBean = new PaycheckBean();
-//	        	paycheckBean.addPaycheck(paycheck);
-//	            paycheckMap.put(paycheck.getMonth(), paycheckBean);
-//	        }
-//	    });
-//		return paycheckMap;
-//	}
 
 }

@@ -3,7 +3,7 @@
 <div class="col-sm-9">
 	<div class="well">
 		<div class="row">
-			<c:forEach var="paycheck" items="${homeView.yearlyPaychecks}">
+			<c:forEach var="paycheck" items="${homeView.yearSummaryList}">
 				<div class="col-sm-3 col-md-3">
 					<div class="thumbnail">
 						<div class="caption">
@@ -26,10 +26,10 @@
 									<b>Reimb.: </b><small>${paycheck.reimbursement}</small>
 								</div>
 								<div class="span4">
-									<b>Real Net: </b><small>${paycheck.realNetPay}</small>
+									<b>Real Net: </b><small>${paycheck.netPayReal}</small>
 								</div>
 								<div class="span4">
-									<b>Real Net Mean: </b><small>${paycheck.realNetPayMean}</small>
+									<b>Real Net Mean: </b><small>${paycheck.netPayRealMean}</small>
 								</div>
 								<div>
 									<a href="<c:url value='/paychecks-${paycheck.year}' />" class="btn btn-danger btn-custom">Details</a>

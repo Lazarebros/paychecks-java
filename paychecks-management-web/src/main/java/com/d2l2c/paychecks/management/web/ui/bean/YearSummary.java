@@ -1,19 +1,18 @@
 /**
  * 
  */
-package com.d2l2c.paychecks.management.service.bean;
+package com.d2l2c.paychecks.management.web.ui.bean;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author dlazare
  *
  */
-public class PaycheckSummary {
+public class YearSummary {
 
 	private int year;
+	private int yearProgress;
 	private Long numnerOfPaychecks;
 	private BigDecimal expectedGrossAmount;
 	private BigDecimal grossAmount;
@@ -23,8 +22,7 @@ public class PaycheckSummary {
 	private BigDecimal netPay;
 	private BigDecimal netPayReal;
 	private BigDecimal netPayRemain;
-
-	private List<PaycheckDetails> paycheckDetailsList = new ArrayList<PaycheckDetails>();
+	private BigDecimal netPayRealMean;
 
 	public int getYear() {
 		return year;
@@ -32,6 +30,14 @@ public class PaycheckSummary {
 
 	public void setYear(int year) {
 		this.year = year;
+	}
+
+	public int getYearProgress() {
+		return yearProgress;
+	}
+
+	public void setYearProgress(int yearProgress) {
+		this.yearProgress = yearProgress;
 	}
 
 	public Long getNumnerOfPaychecks() {
@@ -106,25 +112,12 @@ public class PaycheckSummary {
 		this.netPayRemain = netPayRemain;
 	}
 
-	public List<PaycheckDetails> getPaycheckDetailsList() {
-		return paycheckDetailsList;
+	public BigDecimal getNetPayRealMean() {
+		return netPayRealMean;
 	}
 
-	public void setPaycheckDetailsList(List<PaycheckDetails> paycheckDetailsList) {
-		this.paycheckDetailsList = paycheckDetailsList;
-	}
-	
-	public void add(PaycheckDetails paycheckDetails) {
-		paycheckDetailsList.add(paycheckDetails);
+	public void setNetPayRealMean(BigDecimal netPayRealMean) {
+		this.netPayRealMean = netPayRealMean;
 	}
 
-	@Override
-	public String toString() {
-		return "PaycheckSummary [year=" + year + ", numnerOfPaychecks=" + numnerOfPaychecks + ", expectedGrossAmount="
-				+ expectedGrossAmount + ", grossAmount=" + grossAmount + ", grossAmountRemain=" + grossAmountRemain
-				+ ", reimbursement=" + reimbursement + ", expectedNetPay=" + expectedNetPay + ", netPay=" + netPay
-				+ ", netPayReal=" + netPayReal + ", netPayRemain=" + netPayRemain + ", paycheckDetailsList="
-				+ paycheckDetailsList + "]";
-	}
-	
 }

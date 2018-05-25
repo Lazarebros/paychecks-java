@@ -5,7 +5,7 @@ package com.d2l2c.paychecks.management.service.worker;
 
 import java.util.List;
 
-import com.d2l2c.paychecks.management.service.bean.PaycheckSummary;
+import com.d2l2c.paycheck.util.bean.PaycheckSummary;
 
 /**
  * @author dayanlazare

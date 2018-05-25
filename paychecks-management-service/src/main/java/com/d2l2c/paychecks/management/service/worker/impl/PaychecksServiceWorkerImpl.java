@@ -6,7 +6,7 @@ package com.d2l2c.paychecks.management.service.worker.impl;
 import java.util.List;
 
 import com.d2l2c.common.util.http.HttpUtil;
-import com.d2l2c.paychecks.management.service.bean.PaycheckSummary;
+import com.d2l2c.paycheck.util.bean.PaycheckSummary;
 import com.d2l2c.paychecks.management.service.bean.PaycheckSummaryList;
 import com.d2l2c.paychecks.management.service.worker.PaychecksServiceWorker;
 import com.google.gson.Gson;

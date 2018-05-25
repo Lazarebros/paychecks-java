@@ -9,20 +9,23 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeMap;
 
-import com.d2l2c.paychecks.management.web.ui.bean.YearSummary;
+import com.d2l2c.paychecks.management.web.ui.bean.PaycheckBean;
 
 /**
  * @author dayanlazare
  *
  */
-public class HomeView implements Serializable {
+public class HomeViewOld implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private List<String> companies = new ArrayList<String>();
+
 	private Set<Integer> years = new HashSet<Integer>();
-	private Collection<YearSummary> yearSummaryList = new ArrayList<YearSummary>();
+
+	TreeMap<Integer, PaycheckBean> yearlyPaycheckMap = new TreeMap<Integer, PaycheckBean>();
 
 	public List<String> getCompanies() {
 		return companies;
@@ -39,13 +42,17 @@ public class HomeView implements Serializable {
 	public void setYears(Set<Integer> years) {
 		this.years = years;
 	}
-
-	public Collection<YearSummary> getYearSummaryList() {
-		return yearSummaryList;
+	
+	public TreeMap<Integer, PaycheckBean> getYearlyPaycheckMap() {
+		return yearlyPaycheckMap;
 	}
 
-	public void setYearSummaryList(Collection<YearSummary> yearSummaryList) {
-		this.yearSummaryList = yearSummaryList;
+	public void setYearlyPaycheckMap(TreeMap<Integer, PaycheckBean> yearlyPaycheckMap) {
+		this.yearlyPaycheckMap = yearlyPaycheckMap;
+	}
+
+	public Collection<PaycheckBean> getYearlyPaychecks() {
+		return yearlyPaycheckMap.values();
 	}
 
 }

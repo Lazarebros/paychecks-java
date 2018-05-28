@@ -4,8 +4,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.ui.ModelMap;
 
-import com.d2l2c.paychecks.management.web.util.SessionUtils;
-
 /**
  * @author dayanlazare
  *
@@ -19,13 +17,7 @@ public class BaseController {
 	}
 	
 	protected String getLoggedInUserName() {
-		String username = SessionUtils.getUserName();
-		if(username == null) {
-			username = getUserName();
-			
-			SessionUtils.setUserName(username);
-		}
-		return username;
+		return getUserName();
 	}
 
 	/**

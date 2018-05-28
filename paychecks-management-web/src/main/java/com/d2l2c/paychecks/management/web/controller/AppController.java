@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.d2l2c.paychecks.management.web.util.SessionUtils;
+
 @Controller
 @RequestMapping("/")
 @SessionAttributes("roles")
@@ -61,6 +63,7 @@ public class AppController extends BaseController {
 		if (auth != null) {
 			persistentTokenBasedRememberMeServices.logout(request, response, auth);
 			SecurityContextHolder.getContext().setAuthentication(null);
+			SessionUtils.getSession().invalidate();
 		}
 		return "redirect:/login?logout";
 	}

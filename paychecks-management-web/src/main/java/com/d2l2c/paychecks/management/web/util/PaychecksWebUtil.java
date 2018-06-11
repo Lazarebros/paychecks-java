@@ -13,7 +13,6 @@ import org.dozer.DozerBeanMapper;
 import com.d2l2c.paycheck.util.bean.PaycheckDetail;
 import com.d2l2c.paycheck.util.bean.PaycheckSummary;
 import com.d2l2c.paychecks.management.web.ui.bean.EChartBean;
-import com.d2l2c.paychecks.management.web.ui.bean.PaycheckBean;
 import com.d2l2c.paychecks.management.web.ui.bean.YearSummary;
 import com.d2l2c.paychecks.management.web.ui.view.HomeView;
 import com.d2l2c.user.management.bean.User;
@@ -28,24 +27,6 @@ public class PaychecksWebUtil {
 
 	static {
 		mapper = new DozerBeanMapper();
-	}
-
-	public static void sortPaycheckViews(List<PaycheckBean> paycheckViews, boolean reverse) {
-		Comparator<PaycheckBean> comparator = new Comparator<PaycheckBean>() {
-			@Override
-			public int compare(PaycheckBean p1, PaycheckBean p2) {
-				int result = compareInt(p1.getYear(), p2.getYear());
-				if (result == 0) {
-					result = compareInt(p1.getMonthOfPay(), p2.getMonthOfPay());
-				}
-				return result;
-			}
-		};
-		if (reverse) {
-			Collections.sort(paycheckViews, comparator.reversed());
-		} else {
-			Collections.sort(paycheckViews, comparator);
-		}
 	}
 
 	public static void sortUsers(List<User> users, boolean reverse) {

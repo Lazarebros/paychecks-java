@@ -164,8 +164,8 @@ public class EChartBean implements Serializable {
 				grossAmountCumulative = grossAmountCumulative.add(monthlyPaycheckDetailMap.get(index).getGrossAmount());
 				grossAmountCumulativeData.add(grossAmountCumulative);
 				
-				realNetPayData.add(monthlyPaycheckDetailMap.get(index).getNetPay());
-				realNetPayCumulative = realNetPayCumulative.add(monthlyPaycheckDetailMap.get(index).getNetPay());
+				realNetPayData.add(monthlyPaycheckDetailMap.get(index).getNetPayReal());
+				realNetPayCumulative = realNetPayCumulative.add(monthlyPaycheckDetailMap.get(index).getNetPayReal());
 				realNetPayCumulativeData.add(realNetPayCumulative);
 			} else {
 				grossAmountData.add("");

@@ -19,7 +19,7 @@ import com.d2l2c.paychecks.management.service.worker.impl.PaychecksServiceWorker
  *
  */
 @Configuration
-@PropertySource("classpath:paychecks-service.properties")
+@PropertySource(value = "classpath:app-test.properties", ignoreResourceNotFound = true)
 @ComponentScans(value = { @ComponentScan("com.d2l2c.paychecks.management.service") })
 public class PaychecksServiceConfig {
 

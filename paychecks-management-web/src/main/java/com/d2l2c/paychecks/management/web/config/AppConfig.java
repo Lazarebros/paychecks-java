@@ -31,7 +31,7 @@ import com.d2l2c.user.management.sping.config.UserJPAConfig;
 @Configuration
 @Import(value={UserJPAConfig.class, PaychecksServiceConfig.class})
 @EnableWebMvc
-@PropertySource(value = "file:${WEB_APP_CONF_DIR}/properties/${APP_ENV}-paychecks-management-web.properties",ignoreResourceNotFound = true)
+@PropertySource(value = "file:${WEB_APP_CONF_DIR}/paychecks/properties/${APP_ENV}-paychecks-management-web.properties",ignoreResourceNotFound = true)
 @ComponentScan(basePackages = "com.d2l2c.paychecks.management.web")
 public class AppConfig extends WebMvcConfigurerAdapter {
 	
